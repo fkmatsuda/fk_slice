@@ -1,0 +1,30 @@
+image: fkmatsuda/smeago-builder:0.22.0
+
+include:
+  - template: License-Scanning.gitlab-ci.yml
+
+stages:
+  - test
+
+snyk:
+  stage: test
+  script:
+    - snyk test
+  only:
+    refs:
+      - main
+      - develop
+
+go-tests:
+  stage: test
+  before_script:
+    - mkdir -p test_report
+  script:
+    - go test -v 2>&1 | go-junit-report -set-exit-code > test_report/go-report.xml
+  artifacts:
+    paths:
+      - test_report/go-report.xml
+    reports:
+          junit: test_report/go-report.xml
+    expire_in: 1 week
+
