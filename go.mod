@@ -1,3 +1,3 @@
-module gitlab.com/fkmatsuda.dev/go/fk_slice
+module github.com/fkmatsuda/fk_slice
 
 go 1.16
