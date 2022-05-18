@@ -3,7 +3,7 @@ package fkslice
 import "reflect"
 
 // FindInSlice takes a slice and looks for an element in it. If found it will
-// return it's key, otherwise it will return -1 and a bool of false.
+// return it's index, otherwise it will return -1 and a bool of false.
 // original source https://golangcode.com/check-if-element-exists-in-slice
 func FindInSlice(slice []interface{}, val interface{}) (int, bool) {
 
