@@ -84,3 +84,20 @@ func TestFindInSlice_struct(t *testing.T) {
 		t.Error("\"delta\" not exists in slice")
 	}
 }
+
+func TestInterfaceSlice_panic(t *testing.T) {
+	var slice interface{}
+	defer func() {
+		if r := recover(); r == nil {
+			t.Error("InterfaceSlice() should panic")
+		}
+	}()
+	InterfaceSlice(slice)
+}
+
+func TestInterfaceSlice_nil(t *testing.T) {
+	var slice []int
+	if InterfaceSlice(slice) != nil {
+		t.Error("InterfaceSlice() should return nil")
+	}
+}
