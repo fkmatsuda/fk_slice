@@ -1,4 +1,4 @@
-image: fkmatsuda/smeago-builder:0.22.0
+image: fkmatsuda/golang-builder:1.18.3
 
 include:
   - template: License-Scanning.gitlab-ci.yml
