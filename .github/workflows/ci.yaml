@@ -1,5 +1,11 @@
 name: ci-sonarcloud
 on:
+  push:
+    branches:
+      - main
+      - develop
+    tags:
+      - 'v*-rc*'
   pull_request:
     branches:
       - develop
